@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!-- 单独功能CSS引入 -->
+    <link rel="stylesheet" type="text/css" href="./jquery.multiselect.css">
+</head>
+<body>
+    <select id="multiselect" data-key='name'  class="multipleSelect" multiple>
+        <option value="1">奥迪</option>
+        <option value="2">宝马</option>
+        <option value="3">别克</option>
+        <option value="4">宝沃</option>
+    </select>
+    <button id="getVal" type="button">取值</button>
+    <button id="setVal" type="button">赋值</button>
+</body>
+</html>
+<!-- page页面自带js引入 -->
+<script type = "text/javascript" src = "./jquery.min.js"></script>
+
+<!-- 单独功能js引入 -->
+<script type = "text/javascript" src="./jquery.multiselect.min.js"></script>
+<script type="text/javascript">
+    $(function(){
+        $multiselect = $('#multiselect');
+        $multiselect.multiselect({
+                multiple: false,
+                
+            }).multiselectfilter({
+                label: '',
+            }).multiselectstyle();
+        $("#getVal").click(function(event) {
+            /* Act on the event */
+            console.log($multiselect.val())
+        });
+        $("#setVal").click(function(event) {
+            /* Act on the event */
+            $multiselect.val([2]).multiselect('refresh');
+        });
+    });
+
+</script>

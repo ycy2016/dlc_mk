@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.mas.dtc.dao.ICrudUserDAO">
+
+	<select id="selectUserByAll" resultType="com.mas.dtc.po.UserInfo" >
+		select user_id as userId,account ,user_name as  userName,status,role_id  as  roleId,role_name as roleName from user
+	</select>
+	
+	<select id="selectUserByAccount" resultType="com.mas.dtc.po.UserInfo" parameterType="com.mas.dtc.po.UserInfo" >
+		select user_id as userId,account ,password ,user_name as  userName,status,role_id  as  roleId,role_name as roleName from user where account=#{account,jdbcType=VARCHAR}
+	</select>
+	<!-- account值在表中不存在则添加 -->
+	<!-- <insert id="insertUser" parameterType="com.mas.dtc.entity.UserInfo"  useGeneratedKeys="true" keyProperty="user_id" >
+	insert into user (account, user_name, password,status,role_id,role_name,createtime)
+    SELECT #{account,jdbcType=VARCHAR}, #{userName,jdbcType=VARCHAR},#{password,jdbcType=VARCHAR},#{status,jdbcType=VARCHAR},#{role_id,jdbcType=INTEGER} ,#{rolerole_name_id,jdbcType=VARCHAR},NOW()
+    FROM DUAL WHERE NOT EXISTS (SELECT account FROM  user WHERE account = #{account,jdbcType=VARCHAR})
+	</insert> -->
+	
+	 <insert id="insertUser" parameterType="com.mas.dtc.po.UserInfo"  useGeneratedKeys="true" keyProperty="user_id" >
+	insert into user (account, user_name,
+	password,status,role_id,role_name,createtime)
+	VALUES( #{account,jdbcType=VARCHAR},
+	#{userName,jdbcType=VARCHAR},#{password,jdbcType=VARCHAR},
+	#{status,jdbcType=VARCHAR},#{roleId,jdbcType=INTEGER} ,
+	#{roleName,jdbcType=VARCHAR},NOW())
+	</insert>
+
+	<update id="updateUser" parameterType="com.mas.dtc.po.UserInfo">
+		update user   
+		<set>  
+			<if test="userName != null and userName != '' ">user_name = #{userName,jdbcType=VARCHAR},</if>  
+			<if test="password != null and password != '' ">password = #{password,jdbcType=VARCHAR},</if>  
+			<if test="status != null and status != '' ">status = #{status,jdbcType=VARCHAR},</if>  
+			<if test="roleId != null and roleId != '' ">role_id = #{roleId,jdbcType=VARCHAR},</if> 
+			<if test="roleName != null and roleName != '' ">role_name= #{roleName,jdbcType=VARCHAR},</if> 
+			updatetime = NOW()
+		</set>  
+		where account = #{account,jdbcType=VARCHAR}
+	</update>
+</mapper>

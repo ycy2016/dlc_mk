@@ -1,0 +1,6 @@
+-----关于项目打包的介绍-------
+1、修改pom.xml文件的packaging属性值，打jar包改为jar，打war包则改为war
+2、右键项目 ===》Run as ==> Maven build...
+3、Global 输入clean package
+4、Profiles 输入-P environment，environment可为dev、qa或prd（分别代表本地环境、测试环境、生产环境），不填默认为dev
+5、勾选Skip Tests，点击run即可

@@ -1,0 +1,692 @@
+@charset 'UTF-8';
+//网页主色调
+$mainColor: #2d7bed;
+$nextColoe: #4da7fd;
+
+body
+{
+    font-family: 'Microsoft Yahei','Hiragino Sans GB','Helvetica Neue',Helvetica,tahoma,arial,Verdana,sans-serif,'WenQuanYi Micro Hei','\5B8B\4F53';
+    font-size: 14px;
+
+    min-width: 1200px;
+
+    background: #ebeef1;
+}
+::-webkit-scrollbar
+{
+    width: 5px;
+    height: 10px;
+}
+::-webkit-scrollbar-button:vertical
+{
+    display: none;
+}
+::-webkit-scrollbar-track,
+::-webkit-scrollbar-corner
+{
+    background-color: #e2e2e2;
+}
+::-webkit-scrollbar-thumb
+{
+    border-radius: 50px;
+    background-color: rgba(0,0,0,.3);
+}
+::-webkit-scrollbar-thumb:vertical:hover
+{
+    background-color: rgba(0,0,0,.35);
+}
+::-webkit-scrollbar-thumb:vertical:active
+{
+    background-color: rgba(0,0,0,.38);
+}
+.header
+{
+    position: fixed;
+    z-index: 99991;
+
+    width: 100%;
+    height: 70px;
+
+    background: #fff;
+    box-shadow: 0 1px 5px rgba(19, 19, 19, .23), 0 3px 6px transparent;
+    .logo
+    {
+        display: inline-block;
+
+        width: 200px;
+        height: 70px;
+
+        background: #2d7bed url('../images/logo.png') no-repeat center;
+        background-size: 170px;
+    }
+    .user
+    {
+        font-weight: 200;
+        line-height: 70px;
+
+        display: inline-block;
+        float: right;
+
+        margin-right: 30px;
+
+        cursor: pointer;
+    }
+}
+
+.mainContent
+{
+    
+    padding-left: 200px;
+    .left-menu
+    {
+        position: fixed;
+        z-index: 99991;
+        left: 0;
+            top:70px;
+        width: 200px;
+        height: 100%;
+
+        background: #fff;
+        box-shadow: 0 3px 6px transparent, 0 3px 5px rgba(19, 19, 19, .23);
+        ul
+        {
+            position: relative;
+
+            padding-top: 60px;
+            li
+            {
+                a
+                {
+                    line-height: 50px;
+
+                    display: block;
+
+                    margin-right: 20px;
+                    margin-bottom: 70px;
+                    margin-left: 20px;
+                    padding-left: 75px;
+
+                    text-decoration: none;
+
+                    color: #9b9898;
+                    text-shadow: 0 2px 2px rgba(0, 0, 0, .08);
+                }
+                .active
+                {
+                    color: #fff;
+                    border-radius: 100px;
+                    background-color: #2d7bed;
+                    box-shadow: 0 0 7px 2px rgba(0, 0, 0, .1);
+                }
+                span
+                {
+                    position: absolute;
+
+                    display: inline-block;
+
+                    width: 24px;
+                    height: 24px;
+                    margin-top: 13px;
+                    margin-left: -50px;
+                }
+                // 基础数据  
+                .basicsData
+                {
+                    background: url(../images/jc0.png) no-repeat;
+                }
+                .active > .basicsData
+                {
+                    background: url(../images/jc1.png) no-repeat;
+                }
+                // 数据场景 
+                .dataScene
+                {
+                    background: url(../images/cj0.png) no-repeat;
+                }
+                .active > .dataScene
+                {
+                    background: url(../images/cj1.png) no-repeat;
+                }
+                //画像报告
+                .Portrayal
+                {
+                    background: url(../images/hx0.png) no-repeat;
+                }
+                .active > .Portrayal
+                {
+                    background: url(../images/hx1.png) no-repeat;
+                }
+                // 算法
+                .userManage
+                {
+                    background: url(../images/yh0.png) no-repeat;
+                }
+                .active > .userManage
+                {
+                    background: url(../images/yh1.png) no-repeat;
+                }
+            }
+            #userManageAdmin
+            {
+                display: none;
+            }
+        }
+        .copyright
+        {
+            font-size: 12px;
+
+            position: absolute;
+            bottom: 75px;
+
+            width: 100%;
+
+            text-align: center;
+        }
+    }
+    .main
+    {
+        position: relative;
+        padding-top: 70px;
+        width: 100%;
+        height: 100%;
+        .titleContent
+        {
+            width: 98%;
+            height: 55px;
+            margin: 10px;
+            
+            border-left: 4px solid $nextColoe;
+            border-radius: 2px;
+            background: #fff;
+            box-shadow: 0 1px 5px rgba(19, 19, 19, .23), 0 3px 6px transparent;
+            .title
+            {
+                font-size: 16px;
+                line-height: 55px;
+
+                display: inline-block;
+
+                margin-left: 10px;
+            }
+            .layui-tab:nth-child(2)
+            {
+                position: absolute;
+
+                width: 98%;
+                margin: -55px 0 0 0;
+
+                text-align: left!important;
+                 > .layui-tab-title
+                {
+                    height: 55px;
+                    margin-left: 160px;
+
+                    border-bottom: 0;
+                    li
+                    {
+                        line-height: 55px;
+
+                        width: 120px;
+                        min-width: 65px;
+                        padding: 0;
+
+                        border-left: 1px solid #ebeef1;
+                        &:first-child
+                        {
+                            border-left: none;
+                        }
+                    }
+                    .layui-this
+                    {
+                        height: 55px;
+
+                        color: #fff;
+                        border-left: 1px solid $nextColoe;
+                        border-radius: 0;
+                        background: $nextColoe;
+                        .tagbadge
+                        {
+                            color: $nextColoe;
+                            background-color: #fff;
+                        }
+                        &:after
+                        {
+                            border: none;
+                            border-bottom: 0;
+                            border-radius: 0;
+                        }
+                    }
+                }
+                .layui-tab-brief
+                {
+                     > .layui-tab-title
+                    {
+                        .layui-this
+                        {
+                            color: $nextColoe;
+                            &:after
+                            {
+                                position: absolute;
+                                top: 0;
+                                left: 0;
+
+                                box-sizing: border-box;
+                                width: 100%;
+                                height: 41px;
+
+                                content: '';
+                                pointer-events: none;
+                            }
+                        }
+                    }
+                }
+            }
+
+
+            .layui-tab-content
+            {
+                margin-right: 4px;
+                margin-left: -4px;
+                padding: 10px 0 0 0;
+            }
+            .tagbadge
+            {
+                font-size: 12px;
+                font-weight: 700;
+                line-height: 1;
+
+                position: absolute;
+                top: 9px;
+                right: 12px;
+
+                min-width: 10px;
+                padding: 3px 7px;
+
+                text-align: center;
+                vertical-align: baseline;
+                white-space: nowrap;
+
+                color: #fff;
+                border-radius: 10px;
+                background-color: #ea2000;
+            }
+            .operation
+            {
+                position: absolute;
+
+                display: inline-block;
+
+                width: 100%;
+                margin: 20px 0 0 20px;
+                margin-left: 0px;
+                padding-left: 16px;
+                .go-back
+                {
+                    display: none;
+                    float: left;
+
+                    height: 30px;
+                    padding-left: 30px;
+
+                    border: none;
+                    background: url(../images/reback.png) no-repeat left center;
+                }
+                .thisTableName
+                {
+                    line-height: 30px;
+
+                    position: absolute;
+                    left: 50%;
+
+                    width: 140px;
+                    margin-left: -70px;
+
+                    text-align: center;
+                }
+            }
+            .fileUploadMapping
+            {
+                line-height: 30px;
+
+                position: absolute;
+                z-index: 9999;
+                right: 46px;
+
+                display: none;
+
+                width: 160px;
+                padding-left: 42px;
+
+                cursor: pointer;
+
+                color: #fff;
+                border-radius: 100px;
+                background: url(../images/file_upload.png) 12px no-repeat  $nextColoe;
+                input[type=file]
+                {
+                    font-size: 0;
+
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+
+                    width: 100%;
+                    height: 100%;
+
+                    cursor: pointer;
+
+                    opacity: 0;
+                }
+            }
+            //用户管理界面
+            &.userManagement
+            {
+                .layui-tab:nth-child(2)
+                {
+                    margin: 0;
+                }
+            }
+            .addUser
+            {
+                line-height: 30px;
+
+                position: absolute;
+                z-index: 9999;
+                right: 46px;
+
+                width: 160px;
+                padding-left: 42px;
+
+                cursor: pointer;
+
+                color: #fff;
+                border-radius: 100px;
+                background: $nextColoe;
+            }
+        }
+
+        .content
+        {
+            min-height: 460px;
+            margin: 0;
+            padding: 15px;
+            padding-top: 70px;
+
+            border-radius: 2px;
+            background: #fff;
+            box-shadow: 0 1px 5px rgba(19, 19, 19, .23), 0 3px 6px transparent;
+            .table
+            {
+                cursor: pointer;
+                text-align: left;
+            }
+            .fixed-table-toolbar .search
+            {
+                position: absolute;
+                z-index: 100;
+                right: 0;
+
+                margin-top: -128px;
+                margin-right: 50px;
+                .form-control
+                {
+                    width: 260px;
+                    height: 40px;
+                    padding-left: 40px;
+
+                    border: 1px solid #ccc;
+                    border-radius: 2px;
+                    background: #ebeef1 url('../images/search.png') 10px no-repeat;
+                }
+            }
+            .fixed-table-container
+            {
+                color: #4b4d4f;
+                border: none;
+                thead
+                {
+                    background: #f2f2f2;
+                    tr > th
+                    {
+                        font-size: 14px;
+                        font-weight: bold;
+
+                        color: #4b4d4f;
+                        border: none;
+                        &:first-child
+                        {
+                            border-top-left-radius: 0;
+                        }
+                    }
+                }
+                tbody
+                {
+                    font-size: 14px;
+                    td
+                    {
+                        font-weight: 200;
+
+                        vertical-align: middle;
+
+                        color: #4b4d4f;
+                        border: none;
+                        .ui-multiselect
+                        {
+                            max-width: 225px;
+                            height: 24px;
+                            padding-right: 34px;
+
+                            border: 1px solid #ccc;
+                            border-radius: 0;
+                            background: url('../images/down.png') 205px no-repeat;
+                        }
+                    }
+                    tr:nth-child(odd)
+                    {
+                        background: #fff;
+                    }
+                    tr:nth-child(even)
+                    {
+                        background: #f8f8f8;
+                    }
+                    // 操作修改
+                    .icon
+                    {
+                        display: inline-block;
+
+                        width: 24px;
+                        height: 24px;
+                        margin-left: 20px;
+
+                        cursor: pointer;
+                        vertical-align: middle;
+                        &.searchDetailedness
+                        {
+                            background: url('../images/search.png') no-repeat;
+                        }
+                        &.eidtUser
+                        {
+                            background: url('../images/update.png') no-repeat;
+                        }
+                    }
+                }
+                .pagination > li > a,
+                .pagination > li > span
+                {
+                    color: #4b4d4f;
+                }
+                .pagination > .active > a,
+                .pagination > .active > span,
+                .pagination > .active > a:hover,
+                .pagination > .active > span:hover,
+                .pagination > .active > a:focus,
+                .pagination > .active > span:focus
+                {
+                    color: #fff;
+                    border-color: $nextColoe;
+                    background-color: $nextColoe;
+                }
+            }
+        }
+    }
+}
+
+
+
+
+.layui-tab-item
+{
+    display: none;
+}
+.layui-show
+{
+    display: block!important;
+}
+.layui-tab
+{
+    margin: 10px 0;
+
+    text-align: left!important;
+}
+.layui-tab-title
+{
+    font-size: 0;
+
+    position: relative;
+    left: 0;
+
+    height: 40px;
+
+    -webkit-transition: all .2s;
+            transition: all .2s;
+    white-space: nowrap;
+    li
+    {
+        font-size: 14px;
+        line-height: 40px;
+
+        position: relative;
+
+        display: inline-block;
+
+        padding: 0 15px;
+
+        cursor: pointer;
+        -webkit-transition: all .2s;
+                transition: all .2s;
+        text-align: center;
+        vertical-align: middle;
+    }
+}
+
+.ui-multiselect-header
+{
+    background-color: #eceeef;
+}
+
+
+/**弹出框**/
+.userService
+{
+    .title
+    {
+        font-size: 18px;
+
+        margin: 10px;
+        padding: 1px 10px 1px 7px;
+
+        cursor: pointer;
+
+        border-left: 5px solid $nextColoe;
+    }
+    .content
+    {
+        li
+        {
+            line-height: 50px;
+
+            display: block;
+
+            width: 100%;
+            height: 50px;
+            div
+            {
+                display: inline-block;
+            }
+            .text
+            {
+                width: 16%;
+
+                text-align: right;
+            }
+
+            .input_internal
+            {
+                width: 80%;
+                margin-left: 5px;
+                input
+                {
+                    line-height: 20px;
+
+                    width: 100%;
+                    height: 35px;
+                    padding-left: 6px;
+
+                    vertical-align: middle;
+
+                    border: 1px solid #ccc;
+                    border-radius: 2px;
+                    box-shadow: none;
+
+                    -webkit-appearance: none;
+                }
+            }
+            .radio-input
+            {
+                line-height: 35px;
+
+                position: relative;
+
+                display: inline-block;
+
+                text-align: left;
+                vertical-align: middle;
+                input[type=radio]
+                {
+                    position: absolute;
+
+                    width: 80px;
+                    height: 20px;
+
+                    cursor: pointer;
+                    vertical-align: middle;
+
+                    opacity: 0;
+
+                    
+                    &:not(old):checked + .border
+                    {
+                        color: #fff;
+                        background-color: #619bf2;
+                    }
+                }
+                .border
+                    {
+                        font-weight: 400;
+                        line-height: 20px;
+
+                        display: block;
+                        float: left;
+
+                        width: 80px;
+                        margin-right: 10px;
+
+                        text-align: center;
+
+                        border: 1px solid #ccc;
+                        border-radius: 2px;
+                    }
+            }
+        }
+    }
+}

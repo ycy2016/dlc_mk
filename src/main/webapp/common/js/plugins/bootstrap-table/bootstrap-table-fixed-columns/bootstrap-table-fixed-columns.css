@@ -1,0 +1,15 @@
+.bootstrap-table .fixed-table-container{
+	position: relative;
+}
+
+.bootstrap-table .fixed-table-body .table.fixed {
+    position: absolute;
+    background-color: #fff;
+    display: none;
+    box-sizing: border-box;
+    overflow: hidden;
+    top: 0;
+    left: 0;
+    padding-right: 0;
+    margin-right: 0;
+}
